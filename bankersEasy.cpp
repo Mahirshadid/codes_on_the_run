@@ -59,10 +59,16 @@ int main(){
             if(available_r[j]<max_need[i][j]){
                 total_dl_p++;
             }else{
-                total_passable_p++;
+                available_r[j]+=rem_need[i][j]+alloc[i][j];
             }
         }
     }
 
-    cout<<"Process passed: "<<total_passable_p<<endl<<"Process deadlocked: "<<total_dl_p;
+    cout<<"Process deadlocked: "<<total_dl_p<<endl;
+
+    cout<<"Available resources:\n";
+    for (int i = 0; i < r; i++) {
+        cout << available_r[i] << " ";
+    }
+    cout << "\n";
 }
