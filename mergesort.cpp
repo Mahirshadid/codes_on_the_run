@@ -1,21 +1,28 @@
 #include<bits/stdc++.h>
+using namespace std;
 
-int mergesort(int a, int n){
-    int hn = ceil(n/2);
-    int ln = n-hn;
-
-    if(hn>=0){
-        int hhn = ceil(hn/2);
-    }
-}
 
 int main(){
-    int n = 7;
-    int a[7] = {1,5,3,7,9,2,4};
+    int n = 3;
+    int a[3] = {1,4,7};
+    int b[3] = {2,3,5};
+    int c[6];
 
-    int sorted[7] = mergesort(a, n);
+    int i=0,j=0,k=0;
 
-    for(int i=0;i<7;i++){
-        printf("%d ",sorted[i]);
+    while(i<n && j<n){
+        if(a[i]<=b[j]){
+            c[k++]=a[i++];
+        }else{
+            c[k++]=b[j++];
+        }
+    }
+
+    while(i<n){c[k++]=a[i++];}
+
+    while(j<n){c[k++]=b[j++];}
+
+    for(int m=0;m<2*n;m++){
+        cout<<c[m]<<" ";
     }
 }
